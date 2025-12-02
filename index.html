@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAUD Al-Khoirot Coloring Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Nunito', 'sans-serif'],
+              display: ['Fredoka', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                blue: '#4FACF7',
+                green: '#6BCB77',
+                yellow: '#FFD93D',
+                red: '#FF6B6B',
+                purple: '#845EC2',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom Print Styles */
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 0;
+        }
+        body * {
+          visibility: hidden;
+        }
+        #printable-area, #printable-area * {
+          visibility: visible;
+        }
+        #printable-area {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          z-index: 9999;
+          background: white;
+          padding: 2cm; /* Standard A4 margin */
+        }
+        #printable-content {
+           flex: 1;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           overflow: hidden;
+        }
+        #printable-image {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+          border: none;
+          box-shadow: none;
+        }
+        .no-print {
+          display: none !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-blue-50 text-slate-800 font-sans antialiased">
+    <div id="root"></div>
+  </body>
+</html>
